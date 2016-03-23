@@ -37,4 +37,22 @@ class RobotWorld
     all.find {|robot| robot.id == id}
   end
 
+  def update(id, robot)
+    database.transaction do
+      target = database['robots'].find {|robot| robot['id'] == id}
+      target['name'] = robot[:name]
+      target['city'] = robot[:city]
+      target['state'] = robot[:state]
+      target['birthdate'] = robot[:birthdate]
+      target['date_hired'] = robot[:date_hired]
+      target['department'] = robot[:department]
+    end
+  end
+
+  def delete(id)
+    database.transaction do
+      database['robots'].delete_if {|robot| robot['id'] == id}
+    end
+  end
+
 end

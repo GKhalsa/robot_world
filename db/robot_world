@@ -1,26 +1,12 @@
 ---
 robots:
 - id: 1
-  name: sdf
-  city: sdf
-  state: ''
-  birthdate: ''
-  date_hired: ''
-  department: ''
-- id: 2
-  name: sdf
-  city: sdf
-  state: ''
-  birthdate: ''
-  date_hired: ''
-  department: ''
-- id: 3
-  name: sdf
-  city: sdf
-  state: ''
-  birthdate: ''
-  date_hired: ''
-  department: ''
+  name: whatwhat
+  city: 'no'
+  state: way
+  birthdate: homie
+  date_hired: this
+  department: cool
 - id: 4
   name: Sunny
   city: la
