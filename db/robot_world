@@ -14,4 +14,18 @@ robots:
   birthdate: ''
   date_hired: ''
   department: ''
-total: 2
+- id: 3
+  name: sdf
+  city: sdf
+  state: ''
+  birthdate: ''
+  date_hired: ''
+  department: ''
+- id: 4
+  name: Sunny
+  city: la
+  state: ca
+  birthdate: 1-1-1 birthdate
+  date_hired: 1-1-1 date-hired
+  department: computers (department)
+total: 4

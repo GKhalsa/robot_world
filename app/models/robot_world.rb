@@ -33,4 +33,8 @@ class RobotWorld
     raw_robots.map {|robot| Robot.new(robot)}
   end
 
+  def find(id)
+    all.find {|robot| robot.id == id}
+  end
+
 end
