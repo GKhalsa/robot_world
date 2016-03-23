@@ -1,15 +1,19 @@
-<form class="" action="/robots" method="post">
-  <p>
-    Create a Robot!
-  </p>
-  <input type="text" name="robot[name]" placeholder="name"><br/>
-  <input type="text" name="robot[city]" placeholder="city"><br/>
-  <input type="text" name="robot[state]" placeholder="state"><br/>
-  <input type="text" name="robot[birthdate]" placeholder="birthdate"><br/>
-  <input type="text" name="robot[date_hired]" placeholder="date hired"><br/>
-  <input type="text" name="robot[department]" placeholder="department"><br/>
-  <input type="submit" value="submit"/>
+<div class="row">
 
-</form>
+  <form class="" action="/robots" method="post">
+    <h3 class="col-md-9 col-md-offset-1" >
+      Create a Robot!
+    </h3>
+    <div class="col-md-4">
 
-<!-- <form action="/robots/" -->
+    <input type="text" name="robot[name]" placeholder="name" class="form-control"><br/>
+    <input type="text" name="robot[city]" placeholder="city" class="form-control"><br/>
+    <input type="text" name="robot[state]" placeholder="state" class="form-control"><br/>
+    <input type="text" name="robot[birthdate]" placeholder="birthdate" class="form-control"><br/>
+    <input type="text" name="robot[date_hired]" placeholder="date hired" class="form-control"><br/>
+    <input type="text" name="robot[department]" placeholder="department" class="form-control"><br/>
+    <input type="submit" value="submit" class="btn btn-default"/>
+
+    </div>
+  </form>
+</div>
