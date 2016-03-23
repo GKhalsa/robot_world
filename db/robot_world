@@ -1,0 +1,17 @@
+---
+robots:
+- id: 1
+  name: sdf
+  city: sdf
+  state: ''
+  birthdate: ''
+  date_hired: ''
+  department: ''
+- id: 2
+  name: sdf
+  city: sdf
+  state: ''
+  birthdate: ''
+  date_hired: ''
+  department: ''
+total: 2
