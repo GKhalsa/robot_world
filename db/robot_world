@@ -1,12 +1,12 @@
 ---
 robots:
 - id: 1
-  name: whatwhat
-  city: 'no'
-  state: way
-  birthdate: homie
-  date_hired: this
-  department: cool
+  name: xcxc
+  city: ''
+  state: ''
+  birthdate: ''
+  date_hired: ''
+  department: ''
 - id: 4
   name: Sunny
   city: la

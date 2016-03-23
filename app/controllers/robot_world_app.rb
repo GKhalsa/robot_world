@@ -41,7 +41,11 @@ class RobotWorldApp < Sinatra::Base
     redirect '/robots'
   end
 
-
+  post '/robots/search' do
+    robot = robot_world.find_by_name(params[:robot][:name])
+     id = robot.id
+     redirect "robots/#{id}"    
+  end
 
   def robot_world
     database = YAML::Store.new('db/robot_world')

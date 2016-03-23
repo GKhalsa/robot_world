@@ -55,4 +55,10 @@ class RobotWorld
     end
   end
 
+  def find_by_name(name)
+    all.find do |robot|
+      robot.name.downcase.include?(name.downcase)
+    end 
+  end
+
 end
