@@ -1,12 +1,5 @@
 ---
 robots:
-- id: 1
-  name: xcxc
-  city: ''
-  state: ''
-  birthdate: ''
-  date_hired: ''
-  department: ''
 - id: 4
   name: Sunny
   city: la
@@ -14,4 +7,4 @@ robots:
   birthdate: 1-1-1 birthdate
   date_hired: 1-1-1 date-hired
   department: computers (department)
-total: 4
+total: 5
