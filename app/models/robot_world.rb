@@ -1,5 +1,4 @@
 require 'yaml/store'
-require_relative 'robot'
 
 class RobotWorld
   attr_reader :database
@@ -58,7 +57,14 @@ class RobotWorld
   def find_by_name(name)
     all.find do |robot|
       robot.name.downcase.include?(name.downcase)
-    end 
+    end
+  end
+
+  def delete_all
+    database.transaction do
+      database['robots'] = []
+      database['total'] = 0
+    end
   end
 
 end

@@ -7,4 +7,11 @@ robots:
   birthdate: 1-1-1 birthdate
   date_hired: 1-1-1 date-hired
   department: computers (department)
-total: 7
+- id: 8
+  name: hfidhf
+  city: fsdohif
+  state: fdohi
+  birthdate: dfoih
+  date_hired: fodih
+  department: dfoih
+total: 8

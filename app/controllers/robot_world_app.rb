@@ -1,7 +1,4 @@
-require 'models/robot_world'
 class RobotWorldApp < Sinatra::Base
-  set :root, File.expand_path("..", __dir__)
-  set :method_override, true
 
   get '/' do
     erb :dashboard
@@ -44,7 +41,7 @@ class RobotWorldApp < Sinatra::Base
   post '/robots/search' do
     robot = robot_world.find_by_name(params[:robot][:name])
      id = robot.id
-     redirect "robots/#{id}"    
+     redirect "robots/#{id}"
   end
 
   def robot_world
