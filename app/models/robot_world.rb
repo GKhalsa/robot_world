@@ -1,25 +1,16 @@
 require 'yaml/store'
-
+require 'pry'
 class RobotWorld
-  attr_reader :database
+  attr_reader :database,
+              :robots
 
   def initialize(database)
     @database = database
   end
 
   def create(robot)
-    database.transaction do
-      database['robots'] ||= []
-      database['total'] ||= 0
-      database['total'] += 1
-      database['robots'] << {'id' => database['total'],
-                           'name' => robot[:name],
-                           'city' => robot[:city],
-                          'state' => robot[:state],
-                      'birthdate' => robot[:birthdate],
-                     'date_hired' => robot[:date_hired],
-                     'department' => robot[:department]}
-    end
+    @robots = database.from(:robots)
+    robots.insert(robot)
   end
 
   def raw_robots
@@ -29,7 +20,7 @@ class RobotWorld
   end
 
   def all
-    raw_robots.map {|robot| Robot.new(robot)}
+    robots.map {|robot| Robot.new(robot)}
   end
 
   def find(id)
@@ -37,21 +28,11 @@ class RobotWorld
   end
 
   def update(id, robot)
-    database.transaction do
-      target = database['robots'].find {|robot| robot['id'] == id}
-      target['name'] = robot[:name]
-      target['city'] = robot[:city]
-      target['state'] = robot[:state]
-      target['birthdate'] = robot[:birthdate]
-      target['date_hired'] = robot[:date_hired]
-      target['department'] = robot[:department]
-    end
+    robots.where(:id => id).update(robot)
   end
 
   def delete(id)
-    database.transaction do
-      database['robots'].delete_if {|robot| robot['id'] == id}
-    end
+    robots.where(:id => id).delete
   end
 
   def find_by_name(name)
@@ -61,10 +42,7 @@ class RobotWorld
   end
 
   def delete_all
-    database.transaction do
-      database['robots'] = []
-      database['total'] = 0
-    end
+    robots.delete
   end
 
 end

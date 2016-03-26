@@ -16,8 +16,13 @@ module TestHelpers
   end
 
   def robot_world
-    database = YAML::Store.new('db/robot_world_test')
+    database = Sequel.sqlite('db/robot_world_test.sqlite')
     @robot_world ||= RobotWorld.new(database)
+  end
+
+  def id_helper(num)
+    num = num - 1
+    id = robot_world.all[num].id
   end
 
   def create_robot(num = 2)

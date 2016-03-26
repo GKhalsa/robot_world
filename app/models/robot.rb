@@ -4,13 +4,13 @@ class Robot
               :department, :id
 
   def initialize(robot)
-    @id         = robot["id"]
-    @name       = robot["name"]
-    @city       = robot["city"]
-    @state      = robot["state"]
-    @birthdate  = robot["birthdate"]
-    @date_hired = robot["date_hired"]
-    @department = robot["department"]
+    @id         = robot[:id]
+    @name       = robot[:name]
+    @city       = robot[:city]
+    @state      = robot[:state]
+    @birthdate  = robot[:birthdate]
+    @date_hired = robot[:date_hired]
+    @department = robot[:department]
   end
 
 end

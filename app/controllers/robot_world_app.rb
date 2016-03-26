@@ -40,12 +40,21 @@ class RobotWorldApp < Sinatra::Base
 
   post '/robots/search' do
     robot = robot_world.find_by_name(params[:robot][:name])
-     id = robot.id
-     redirect "robots/#{id}"
+     if robot.nil?
+       erb :result
+     else
+       id = robot.id
+       redirect "robots/#{id}"
+     end
+     #inside robotworld change the find to find all and show the results of that array like in index but with only those findings. Dont forget to do .count <= .count so that you cant search harry with rrr
   end
 
   def robot_world
-    database = YAML::Store.new('db/robot_world')
+    if ENV["RACK_ENV"] == "test"
+      database = Sequel.sqlite('db/robot_world_test.sqlite')
+    else
+      database = Sequel.sqlite('db/robot_world.sqlite')
+    end
     @robot_world ||= RobotWorld.new(database)
   end
 
