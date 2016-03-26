@@ -7,6 +7,7 @@ class RobotTest < Minitest::Test
     create_robot(1)
     id = id_helper(1)
     robot = robot_world.find(id)
+    
     assert_equal "Robo 1", robot.name
     assert_equal "Los Angeles 1", robot.city
     assert_equal "California 1", robot.state
