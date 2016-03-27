@@ -9,4 +9,5 @@ database.create_table :robots do
   String      :birthdate
   String      :date_hired
   String      :department
+  String      :photo
 end

@@ -10,3 +10,4 @@ database.create_table :robots do
   String      :date_hired
   String      :department
 end
+#change file name to create robots

@@ -13,6 +13,13 @@ class RobotWorldApp < Sinatra::Base
     erb :new
   end
 
+  get '/robots/data' do
+    @avg_age = robot_world.average_age
+    @hired_by_year = robot_world.hired_by_year
+    binding.pry
+    erb :data
+  end
+
   post '/robots' do
     robot_world.create(params[:robot])
     redirect '/robots'
@@ -48,6 +55,7 @@ class RobotWorldApp < Sinatra::Base
      end
      #inside robotworld change the find to find all and show the results of that array like in index but with only those findings. Dont forget to do .count <= .count so that you cant search harry with rrr
   end
+
 
   def robot_world
     if ENV["RACK_ENV"] == "test"

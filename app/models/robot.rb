@@ -1,7 +1,7 @@
 class Robot
   attr_reader :name, :city, :state,
               :birthdate, :date_hired,
-              :department, :id
+              :department, :id, :photo
 
   def initialize(robot)
     @id         = robot[:id]
@@ -11,6 +11,7 @@ class Robot
     @birthdate  = robot[:birthdate]
     @date_hired = robot[:date_hired]
     @department = robot[:department]
+    @photo      = robot[:photo]
   end
 
 end
