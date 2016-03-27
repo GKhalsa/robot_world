@@ -1,0 +1,77 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      </button>
+      <a class="navbar-brand" href="/">Robot World</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li id="new"><a href="/robots/new">New</a></li>
+      <li id="all"><a href="/robots">All</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<h3>Robots Hired By Year</h3>
+<table class="table" id="hired_by_year">
+  <tr>
+    <% @hired_by_year.each do |year, occurances| %>
+    <th> <%= year %>  </th>
+    <% end %>
+  </tr>
+
+  <tr>
+    <% @hired_by_year.each do |year, occurances| %>
+    <td> <%= occurances %> </td>
+    <% end %>
+  </tr>
+</table>
+
+<h3>Robots Per Department</h3>
+<table class="table" id="robots_per_dept">
+  <tr>
+    <% @robots_per_dept.each do |dept, occurances| %>
+    <th> <%= dept %>  </th>
+    <% end %>
+  </tr>
+
+  <tr>
+    <% @robots_per_dept.each do |dept, occurances| %>
+    <td> <%= occurances %> </td>
+    <% end %>
+  </tr>
+</table>
+
+<h3>Robots Per City</h3>
+<table class="table" id="robots_per_city">
+  <tr>
+    <% @robots_per_city.each do |city, occurances| %>
+    <th> <%= city %>  </th>
+    <% end %>
+  </tr>
+
+  <tr>
+    <% @robots_per_city.each do |city, occurances| %>
+    <td> <%= occurances %> </td>
+    <% end %>
+  </tr>
+</table>
+
+<h3>Robots Per State</h3>
+<table class="table" id="robots_per_state">
+  <tr>
+    <% @robots_per_state.each do |state, occurances| %>
+    <th> <%= state %>  </th>
+    <% end %>
+  </tr>
+
+  <tr>
+    <% @robots_per_state.each do |state, occurances| %>
+    <td> <%= occurances %> </td>
+    <% end %>
+  </tr>
+</table>
+
+<h3>Average Robot Age: <%= @avg_age %></h3>
