@@ -16,7 +16,9 @@ class RobotWorldApp < Sinatra::Base
   get '/robots/data' do
     @avg_age = robot_world.average_age
     @hired_by_year = robot_world.hired_by_year
-    binding.pry
+    @robots_per_dept = robot_world.robots_per_dept
+    @robots_per_city = robot_world.robots_per_city
+    @robots_per_state = robot_world.robots_per_state
     erb :data
   end
 

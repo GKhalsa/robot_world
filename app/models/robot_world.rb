@@ -69,15 +69,32 @@ class RobotWorld
     (Date.today.strftime("%Y").to_i - avg_birthyear).round(2)
   end
 
-  def years_hired
-    raw_robots.map do |robot_hash|
-      robot_hash[:date_hired].split("-").first.to_i
+  def hired_by_year
+    hiring_dates = all.map do |robot|
+      robot.date_hired.split("-").first.to_i
     end
+    calc_robot_data(hiring_dates)
   end
 
-  def hired_by_year
-    x = years_hired.reduce(Hash.new(0)) do |acc, year|
-      acc[year] += 1
+  def robots_per_dept
+    department_data = all.map {|robot|robot.department}
+    calc_robot_data(department_data)
+  end
+
+
+  def robots_per_city
+    city_data = all.map {|robot| robot.city}
+    calc_robot_data(city_data)
+  end
+
+  def robots_per_state
+    state_data = all.map {|robot| robot.state}
+    calc_robot_data(state_data)
+  end
+
+  def calc_robot_data(dataset)
+    dataset.reduce(Hash.new(0)) do |acc, data|
+      acc[data] += 1
       acc
     end
   end
