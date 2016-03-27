@@ -48,14 +48,13 @@ class RobotWorldApp < Sinatra::Base
   end
 
   post '/robots/search' do
-    robot = robot_world.find_by_name(params[:robot][:name])
-     if robot.nil?
+    robots = robot_world.find_by_name(params[:robot][:name])
+     if robots.empty?
        erb :result
      else
-       id = robot.id
-       redirect "robots/#{id}"
+       @found_robos = robots
+       erb :search_results
      end
-     #inside robotworld change the find to find all and show the results of that array like in index but with only those findings. Dont forget to do .count <= .count so that you cant search harry with rrr
   end
 
 

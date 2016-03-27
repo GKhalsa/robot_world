@@ -49,8 +49,19 @@ class RobotWorld
   end
 
   def find_by_name(name)
-    all.find do |robot|
-      robot.name.downcase.include?(name.downcase)
+    potential_robot_matches = all.find_all do |robot|
+      name.downcase.chars.all? do |letter|
+        robot.name.downcase.include?(letter)
+      end
+    end
+    filter_matches(potential_robot_matches, name)
+  end
+
+  def filter_matches(potential_matches, name)
+    potential_matches.find_all do |robot|
+      robot.name.downcase.chars.all? do |letter|
+        name.downcase.count(letter) <= robot.name.downcase.count(letter)
+      end
     end
   end
 
