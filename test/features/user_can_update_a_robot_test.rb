@@ -9,9 +9,10 @@ class UserCanUpdateARobotTest < Minitest::Test
     visit '/robots'
     assert page.has_content?('Robo 1')
     refute page.has_content?('Wwow')
+    id = robot_world.all[0].id
 
-    find('a[href="robots/1/edit"]').click
-    assert_equal "/robots/1/edit", current_path
+    click_link('Edit')
+    assert_equal "/robots/#{id}/edit", current_path
     fill_in("robot[name]", with: "Wwow")
     click_button("submit")
     assert_equal "/robots", current_path
