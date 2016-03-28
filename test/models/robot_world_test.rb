@@ -11,8 +11,8 @@ class RobotWorldTest < Minitest::Test
     assert_equal "Robo 1", robot.name
     assert_equal "Los Angeles 1", robot.city
     assert_equal "California 1", robot.state
-    assert_equal "January 1", robot.birthdate
-    assert_equal "March 1", robot.date_hired
+    assert_equal "1991-4-7", robot.birthdate
+    assert_equal "2011-4-7", robot.date_hired
     assert_equal "Computer Lab 1", robot.department
   end
 
@@ -76,10 +76,43 @@ class RobotWorldTest < Minitest::Test
     refute robot_world.all.any? {|robot| robot.name == 'Robo 1'}
   end
 
-  def test_can_find_robot_by_name_fragment
+  def test_can_find_robots_by_name_fragment
     create_robot
-    robot = robot_world.find_by_name('rOb')
+    robots = robot_world.find_by_name('rOb')
 
-    assert_equal "Robo 1", robot.name
+    assert_equal 2, robots.count
+    assert_equal "Robo 1", robots[0].name
+    assert_equal "Robo 2", robots[1].name
   end
+
+  def test_average_age
+    create_robot
+
+    assert_equal 24.5, robot_world.average_age
+  end
+
+  def test_hirings_by_year
+    create_robot
+
+    assert_equal({2011=>1, 2012=>1}, robot_world.hired_by_year)
+  end
+
+  def test_robots_per_dept
+    create_robot
+
+    assert_equal({"Computer Lab 1"=>1, "Computer Lab 2"=>1}, robot_world.robots_per_dept)
+  end
+
+  def test_robots_per_city
+    create_robot
+
+    assert_equal({"Los Angeles 1"=>1, "Los Angeles 2"=>1}, robot_world.robots_per_city)
+  end
+
+  def test_robots_per_state
+    create_robot
+
+    assert_equal({"California 1"=>1, "California 2"=>1},robot_world.robots_per_state)
+  end
+
 end

@@ -31,8 +31,8 @@ module TestHelpers
                   name: "Robo #{i + 1}",
                   city: "Los Angeles #{i + 1}",
                  state: "California #{i + 1}",
-             birthdate: "January #{i + 1}",
-            date_hired: "March #{i + 1}",
+             birthdate: "199#{+ i + 1}-4-7",
+            date_hired: "201#{+ i + 1}-4-7",
             department: "Computer Lab #{i + 1}"
                         })
     end
